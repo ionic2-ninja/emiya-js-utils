@@ -1,0 +1,29 @@
+{
+  "name": "emiya-utils",
+  "version": "1.0.0",
+  "description": "An es6 based utils",
+  "main": "index.d.ts",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/ionic2-ninja/emiya-utils.git"
+  },
+  "keywords": [
+    "es6",
+    "angular2",
+    "ionic2",
+    "ecmascript6",
+    "emiya",
+    "javascript",
+    "js",
+    "util"
+  ],
+  "author": "emiyalee",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/ionic2-ninja/emiya-utils/issues"
+  },
+  "homepage": "https://github.com/ionic2-ninja/emiya-utils#readme"
+}
