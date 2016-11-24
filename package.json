@@ -1,8 +1,8 @@
 {
-  "name": "emiya-utils",
-  "version": "1.0.0",
+  "name": "emiya-js-utils",
+  "version": "1.0.2",
   "description": "An es6 based utils",
-  "main": "index.d.ts",
+  "main": "index.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1"
   },
