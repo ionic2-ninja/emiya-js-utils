@@ -59,16 +59,17 @@ export class Utils {
     if (source instanceof Array) {
       result = [];
       for (var key in source) {
-        result.push((Utils.notBlankStr(source[key]) && typeof source[key] === 'object' && source[key].toString() == '[object Object]') ? Utils.deepCopy(source[key]) : source[key]);
+        result.push((Utils.notBlankStr(source[key]) && typeof source[key] === 'object' && ((source[key] instanceof Array) || source[key].toString() == '[object Object]')) ? Utils.deepCopy(source[key]) : source[key]);
       }
     }
     else if (typeof source === 'object' && source.toString() != '[object Object]') {
       return source;
     }
     else if (typeof source === 'object') {
+
       result = {};
       for (var key in source) {
-        result[key] = (Utils.notBlankStr(source[key]) && typeof source[key] === 'object' && source[key].toString() == '[object Object]') ? Utils.deepCopy(source[key]) : source[key];
+        result[key] = (Utils.notBlankStr(source[key]) && typeof source[key] === 'object' && ((source[key] instanceof Array) || source[key].toString() == '[object Object]')) ? Utils.deepCopy(source[key]) : source[key];
       }
     }
     else
@@ -113,9 +114,9 @@ export class Utils {
       else if (a[list[c]] > b[list[c]])
         return 1 * factor;
       else {
-        let clone = Array.from(list)
+        let clone = Array['from'](list)
         clone.splice(0, parseInt(c) + 1)
-        let clone2 = Array.from(order)
+        let clone2 = Array['from'](order)
         clone2.splice(0, parseInt(c) + 1)
         if (clone.length == 0)
           return 0

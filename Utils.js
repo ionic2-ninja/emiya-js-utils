@@ -55,7 +55,7 @@ var Utils = (function () {
         if (source instanceof Array) {
             result = [];
             for (var key in source) {
-                result.push((Utils.notBlankStr(source[key]) && typeof source[key] === 'object' && source[key].toString() == '[object Object]') ? Utils.deepCopy(source[key]) : source[key]);
+                result.push((Utils.notBlankStr(source[key]) && typeof source[key] === 'object' && ((source[key] instanceof Array) || source[key].toString() == '[object Object]')) ? Utils.deepCopy(source[key]) : source[key]);
             }
         }
         else if (typeof source === 'object' && source.toString() != '[object Object]') {
@@ -64,7 +64,7 @@ var Utils = (function () {
         else if (typeof source === 'object') {
             result = {};
             for (var key in source) {
-                result[key] = (Utils.notBlankStr(source[key]) && typeof source[key] === 'object' && source[key].toString() == '[object Object]') ? Utils.deepCopy(source[key]) : source[key];
+                result[key] = (Utils.notBlankStr(source[key]) && typeof source[key] === 'object' && ((source[key] instanceof Array) || source[key].toString() == '[object Object]')) ? Utils.deepCopy(source[key]) : source[key];
             }
         }
         else
@@ -112,9 +112,9 @@ var Utils = (function () {
             else if (a[list[c]] > b[list[c]])
                 return 1 * factor;
             else {
-                var clone = Array.from(list);
+                var clone = Array['from'](list);
                 clone.splice(0, parseInt(c) + 1);
-                var clone2 = Array.from(order);
+                var clone2 = Array['from'](order);
                 clone2.splice(0, parseInt(c) + 1);
                 if (clone.length == 0)
                     return 0;
