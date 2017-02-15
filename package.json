@@ -1,6 +1,6 @@
 {
   "name": "emiya-js-utils",
-  "version": "1.0.4",
+  "version": "1.0.5",
   "description": "An es6 based utils",
   "main": "index.js",
   "scripts": {
