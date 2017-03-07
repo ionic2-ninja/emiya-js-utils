@@ -383,6 +383,28 @@ var Utils = (function () {
         }
         return uuid.join('');
     };
+    Utils.getElementXY = function (e, root) {
+        if (root === void 0)
+            root = document.body;
+        var x = 0, y = 0, _org = e;
+        while (e) {
+            if (e == root) {
+                x += (-e.scrollLeft);
+                y += (-e.scrollTop);
+                break;
+            }
+            else if (e != _org) {
+                x += (e.offsetLeft - e.scrollLeft);
+                y += (e.offsetTop - e.scrollTop);
+            }
+            else {
+                x += (e.offsetLeft);
+                y += (e.offsetTop);
+            }
+            e = e.offsetParent;
+        }
+        return { x: x, y: y };
+    };
     return Utils;
 }());
 exports.Utils = Utils;
